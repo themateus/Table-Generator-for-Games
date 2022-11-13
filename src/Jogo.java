@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Jogo {
     private Time time1;
     private Time time2;
@@ -55,6 +57,12 @@ public class Jogo {
     public Time partida(){
         Time a = null;
         if ((time1 != null) && (time2 != null)){
+            if (gols2 == gols1){
+                while(gols2 == gols1){
+                    gols2 = criaAleatorio2();
+                    gols1 = criaAleatorio2();
+                }
+            }
             if (gols1 > gols2){
                 return a = time1;
             }
@@ -71,4 +79,13 @@ public class Jogo {
                time2.getNome() + "(" + time2.getSigla() + ")" + " " + gols2;
     }
 
+    // Método que cria um número aleatório para gols. (RANDÔMIZAÇÃO DE GOLS)
+    public int criaAleatorio2() {
+        Random gerador = new Random();
+        int k = 0;
+        for (int i = 0; i < 1; i++) {
+            k = gerador.nextInt(5) + 1;
+        }
+        return k;
+    }
 }
