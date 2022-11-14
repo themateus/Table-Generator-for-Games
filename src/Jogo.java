@@ -6,15 +6,14 @@ public class Jogo {
     private int gols1;
     private int gols2;
     private Time Vencedor;
-    private int checkrodada;
 
+    // Construtor
     public Jogo(){
         time1 = null;
         time2 = null;
         gols1 = 0;
         gols2 = 0;
         Vencedor = partida();
-        checkrodada = 0;
     }
 
     // Métodos que pegam o valor do atributo no objeto.
@@ -37,11 +36,6 @@ public class Jogo {
     public Time getVencedor(){
         return Vencedor;
     }
-
-    public int getRod(){
-        return checkrodada;
-    }
-
     //
 
 
@@ -56,11 +50,6 @@ public class Jogo {
         time1 = c;
         time2 = d;
     }
-
-    public void setRod(int n){
-        checkrodada = n;
-    }
-    //
 
     
     // Método que determina o VENCEDOR de uma partida.
@@ -84,6 +73,7 @@ public class Jogo {
     }
 
 
+    // Método que organiza como o jogo aparecerá no terminal.
     public String organizaJogo(){
         return time1.getNome() + "(" + time1.getSigla() + ")" + " " + gols1 + "\n" +
                time2.getNome() + "(" + time2.getSigla() + ")" + " " + gols2;
@@ -100,3 +90,4 @@ public class Jogo {
         return k;
     }
 }
+
