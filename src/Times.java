@@ -13,19 +13,8 @@ public class Times {
         return times;
     }
 
-
-    // Método que retorna um time dado uma lista de times e o nome do time.
-    public Time getTime(Times times, String a){
-        int c = 0;
-        Time b = null;
-        while (c < times.getArray().size()){
-          if (a == times.getArray().get(c).getNome()){
-             b = times.getArray().get(c);
-             c = c + 1;
-          }
-          else {c = c +1;}
-          }
-        return b;
+    // Método que retorna o time da posição b.
+    public Time getTime(int b){
+        return times.get(b);
     }
-
 }
