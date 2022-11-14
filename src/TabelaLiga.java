@@ -1,16 +1,16 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class TabelaLiga {
     private Jogo jogo;
     private Times times;
-    private Time campeão;
-    private int rodadas;
     private Jogos jogos;
     private Pontos pontos;
 
+    // Construtor
     public TabelaLiga(){
         jogo = new Jogo();
         times = new Times();
-        campeão = null;
-        rodadas = 0;
         jogos = new Jogos();
         pontos = new Pontos();
     }
@@ -33,47 +33,41 @@ public class TabelaLiga {
         else{times.getArray().add(time);  
             pontos.getPontosList().add(new Ponto(time));}
     }
+    //
 
 
-    // Método que organiza a liga.
+    // Método que organiza e ordena a liga.
     public void organizaLiga(){
         criaJogos();
-        int b = 0;
-        while (b < times.getArray().size()){
-            System.out.println(times.getTime(b).getNome() + " | " + pontos.getPonto(times.getTime(b)));
-            b = b+1;
-        }
-    }
-
-
-    public void criaJogos(){
-        int b = 0;
-        int c = 0;
-        while (b < times.getArray().size()){
-            //System.out.println("Jogos na casa do(a) " + times.getArray().get(b).getNome());
-            while (c < times.getArray().size()){
-                if (c != b){ 
-                   jogo.setTime(times.getArray().get(b), times.getArray().get(c));
-                   jogo.setGols(jogo.criaAleatorio2(), jogo.criaAleatorio2());
-                   //System.out.println(jogo.organizaJogo());
-                   //System.out.println();
-                   jogos.setArrayJogo(jogo);
-                   pontos.setPontos(jogo.partida());
-                }
-                c = c+1;
-            }
-            c = 0;
-            b = b+1;
-        }
-    }
-
-    public void organizaCampeonato(){
-        organizaLiga();
         System.out.println();
-        organizaJogos();
+        int b = 0;
+        ArrayList<Integer> ordena = new ArrayList<>();
+        while (b < pontos.getPontosList().size()){
+            ordena.add(pontos.getPonto(pontos.getPontosList().get(b).getTeam()));
+            b = b +1;
+        }
+        Collections.sort(ordena);
+        int a = ordena.size() -1;
+        int c = 0;
+        while (a >= 0 ){
+            c = ordena.get(a);
+            int d = 0;
+            while(d < pontos.getPontosList().size()){
+                if (c == pontos.getPonto(pontos.getPontosList().get(d).getTeam())){
+                    System.out.println(pontos.getPontosList().get(d).getTeam().getNome() + " | " + pontos.getPonto(pontos.getPontosList().get(d).getTeam()));
+                    d = d+1;
+                }
+                else{
+                    d = d+1;
+                }
+            }
+            a = a-1;
+        }
     }
+    //
 
-    public void organizaJogos(){
+    // Método que gera e diz quais os jogos da liga, com seus resultados.
+    public void criaJogos(){
         int b = 0;
         int c = 0;
         while (b < times.getArray().size()){
@@ -82,10 +76,10 @@ public class TabelaLiga {
                 if (c != b){ 
                    jogo.setTime(times.getArray().get(b), times.getArray().get(c));
                    jogo.setGols(jogo.criaAleatorio2(), jogo.criaAleatorio2());
-                   System.out.println(jogo.organizaJogo());
-                   System.out.println();
                    jogos.setArrayJogo(jogo);
                    pontos.setPontos(jogo.partida());
+                   System.out.println(jogo.organizaJogo());
+                   System.out.println();
                 }
                 c = c+1;
             }
@@ -93,8 +87,15 @@ public class TabelaLiga {
             b = b+1;
         }
     }
-    
-}
+    //
 
+    // Método que gera o campeonato no formato de liga nesse caso.
+    public void organizaCampeonato(){
+        organizaLiga();
+        System.out.println();
+    }
+    //
+
+}
 
 
