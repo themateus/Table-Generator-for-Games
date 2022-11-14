@@ -3,14 +3,19 @@ import java.util.ArrayList;
 public class Pontos {
     private ArrayList<Ponto> pontos;
 
+    // Construtor
     public Pontos(){
         pontos = new ArrayList<>();
     }
+    //
 
+    // Método que retorna a lista de times/pontos.
     public ArrayList<Ponto> getPontosList(){
         return pontos;
     }
+    //
 
+    // Método que adiciona pontos a um time t na lista de time/ponto.
     public void setPontos(Time t){
         int b = 0;
         while(b < pontos.size()){
@@ -36,4 +41,6 @@ public class Pontos {
         }
         return c;
     }
+    //
+
 }
