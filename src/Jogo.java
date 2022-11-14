@@ -6,6 +6,7 @@ public class Jogo {
     private int gols1;
     private int gols2;
     private Time Vencedor;
+    private int checkrodada;
 
     public Jogo(){
         time1 = null;
@@ -13,8 +14,8 @@ public class Jogo {
         gols1 = 0;
         gols2 = 0;
         Vencedor = partida();
+        checkrodada = 0;
     }
-    
 
     // Métodos que pegam o valor do atributo no objeto.
     public Time getTime1(){
@@ -36,6 +37,11 @@ public class Jogo {
     public Time getVencedor(){
         return Vencedor;
     }
+
+    public int getRod(){
+        return checkrodada;
+    }
+
     //
 
 
@@ -49,6 +55,10 @@ public class Jogo {
     public void setTime(Time c, Time d){
         time1 = c;
         time2 = d;
+    }
+
+    public void setRod(int n){
+        checkrodada = n;
     }
     //
 
@@ -78,6 +88,7 @@ public class Jogo {
         return time1.getNome() + "(" + time1.getSigla() + ")" + " " + gols1 + "\n" +
                time2.getNome() + "(" + time2.getSigla() + ")" + " " + gols2;
     }
+
 
     // Método que cria um número aleatório para gols. (RANDÔMIZAÇÃO DE GOLS)
     public int criaAleatorio2() {

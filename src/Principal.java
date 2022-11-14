@@ -1,6 +1,6 @@
 public class Principal {
     public static void main(String[] args){
-        TabelaCopa copa = new TabelaCopa();
+        TabelaLiga copa = new TabelaLiga();
 
         // adicionar times.
         copa.setArray(new Time("BRASIL", "BRA"));
@@ -18,14 +18,13 @@ public class Principal {
         copa.setArray(new Time("COREIA SUL", "COR"));
         copa.setArray(new Time("CHINA", "CHI"));
          
-        copa.setArray(new Time("BRASIL", "BRA"));
-        copa.setArray(new Time("URUGUAI", "URA"));
-        copa.setArray(new Time("ALEMANHA", "GER"));
-        copa.setArray(new Time("FRANÇA", "FRA"));
+        copa.setArray(new Time("NIGÉRIA", "NIG"));
+        copa.setArray(new Time("CAMARÕES", "CAM"));
+        copa.setArray(new Time("FINLÂNDIA", "FIN"));
+        copa.setArray(new Time("ARGÉLIA", "AGE"));
         
 
         copa.organizaCampeonato();
-
     }
     
 }
