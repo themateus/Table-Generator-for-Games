@@ -1,7 +1,9 @@
+package main;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class TabelaLiga {
+public class TabelaLiga{
     private Jogo jogo;
     private Times times;
     private Jogos jogos;
@@ -16,10 +18,19 @@ public class TabelaLiga {
     }
     //
 
+    // Métodos que pegam os atributos do obj.
+    public Pontos getPontos(){
+        return pontos;
+    }
+    
+    public Times getTimes(){
+        return times;
+    }
+
     // Método que gera rodadas.
     public int setRodadas() {
         int n = 0;
-        if (times.getArray().size()%2 != 0){
+        if ((times.getArray().size()%2 != 0) || (times.getArray().size() == 0)){
             n = 0;
         }
         else{n = times.getArray().size() - 1;}
